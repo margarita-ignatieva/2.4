@@ -1,4 +1,4 @@
-public class Trapezium extends Figure{
+public class Trapezium extends Figure {
 
     private double height;
     private double median;

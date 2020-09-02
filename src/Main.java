@@ -2,10 +2,10 @@ import java.util.Random;
 
 public class Main {
     public static Random random = new Random();
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         Figure[] figures = new Figure[random.nextInt(100)];
-        for(Figure figure : figures){
+        for(Figure figure : figures) {
             switch (random.nextInt(4)) {
                 case 0:
                     figure = new Triangle();

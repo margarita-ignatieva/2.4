@@ -1,4 +1,4 @@
-public class Triangle extends Figure{
+public class Triangle extends Figure {
 
     private double height;
     private double base;
