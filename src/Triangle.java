@@ -1,27 +1,32 @@
-import java.util.Random;
 public class Triangle extends Figure{
+
+    private double height;
+    private double base;
 
     @Override
     public String draw() {
-        System.out.println("Фигура: треугольник, площадь: " + area() + "кв. ед., длина гипотенузы: "+ Triangle.hypotenuse() +" ед., цвет: " + Triangle.color());
-        return "0";
+        return "Фигура: треугольник, площадь: " + area() + " кв. ед., высота треугольника: "
+                + height +" ед., цвет: " + getColor();
     }
 
     @Override
-    public int area() {
-        double radiansA = Math.toRadians(Triangle.degreeA());
+    public double area() {
+        base = Math.random() * 100;
+        return Math.floor(height * base / 2 * 100) / 100;
+    }
 
-        double area = Triangle.hypotenuse()*Triangle.hypotenuse()*Math.sin(radiansA);
-        return (int)area;
+    @Override
+    public void setColor(Colors color) {
+        this.color = color;
     }
-    public static int hypotenuse(){
-        Random rand = new Random();
-        int hypotenuse = rand.nextInt(30);
-        return hypotenuse;
+
+    @Override
+    public void setSpecialFeature(double height) {
+        this.height = height;
     }
-    public static double degreeA(){
-        Random rand = new Random();
-        double degreeA = rand.nextDouble()*90;
-        return degreeA;
+
+    @Override
+    public String getColor() {
+        return color.name();
     }
 }

@@ -1,21 +1,30 @@
-import java.util.Random;
-
 public class Circle extends Figure {
+    private double radius;
 
     @Override
     public String draw() {
-        return "Фигура: круг, площадь: " + area() + "кв. ед., длина радиуса: " + Circle.radius() + " ед., цвет: " + Circle.color();
+        return "Фигура: круг, площадь: " + area() + " кв. ед., длина радиуса: "
+                + radius + " ед., цвет: " + getColor();
     }
 
     @Override
-    public int area() {
-        int area = Circle.radius() * Circle.radius()*(int)Math.PI;
-        return area;
+    public double area() {
+        return Math.floor(Math.pow(radius, 2) * Math.PI * 100) / 100;
     }
 
-    public static int radius() {
-        Random rand = new Random();
-        int side = rand.nextInt(30);
-        return side;
+    @Override
+    public void setColor(Colors color) {
+        this.color = color;
     }
+
+    @Override
+    public void setSpecialFeature(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public String getColor() {
+        return color.name();
+    }
+
 }

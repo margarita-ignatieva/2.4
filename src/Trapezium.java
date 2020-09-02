@@ -1,29 +1,32 @@
-import java.util.Random;
 public class Trapezium extends Figure{
+
+    private double height;
+    private double median;
 
     @Override
     public String draw() {
-        return "Фигура: трапеция, площадь: " + area() + "кв. ед., длина высоты: "+ Trapezium.height() +" ед., цвет: " + Trapezium.color();
+        return "Фигура: трапеция, площадь: " + area() + " кв. ед., длина высоты: "
+                + height +" ед., цвет: " + getColor();
     }
 
     @Override
-    public int area() {
-        int area = (int)(Trapezium.sideA()+Trapezium.sideB())*Trapezium.height()/2;
-        return area;
+    public double area() {
+        median = Math.random() * 100;
+        return Math.floor(height * median * 100) / 100;
     }
-    public static int sideA(){
-        Random rand = new Random();
-        int sideA = rand.nextInt(30);
-        return sideA;
+
+    @Override
+    public void setColor(Colors color) {
+        this.color = color;
     }
-    public static int sideB(){
-        Random rand = new Random();
-        int sideB = rand.nextInt(30);
-        return sideB;
+
+    @Override
+    public void setSpecialFeature(double height) {
+        this.height = height;
     }
-    public static int height(){
-        Random rand = new Random();
-        int height = rand.nextInt(30);
-        return height;
+
+    @Override
+    public String getColor() {
+        return color.name();
     }
 }

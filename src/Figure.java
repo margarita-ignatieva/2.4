@@ -1,11 +1,13 @@
-import java.util.Random;
 public abstract class Figure {
-    public abstract String draw();
-    public abstract int area();
-    public static String color(){
-        String[] colors={"transparent","white", "black", "yellow","black", "green", "blue", "red","pink"};
-        Random r=new Random();
-        return colors[r.nextInt(colors.length)];
-    }
-}
+    protected Colors color;
 
+    public abstract String draw();
+
+    public abstract double area();
+
+    public abstract void setColor(Colors color);
+
+    public abstract void setSpecialFeature(double feature);
+
+    public abstract String getColor();
+}
